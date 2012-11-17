@@ -1,0 +1,41 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+obj2rfm interior.obj interior.rfm \
+    --reset-normals \
+    --verbose
+
+rfm_triangulate interior.rfm interior-triangulated.rfm \
+    --verbose
+
+rfm_lint interior-triangulated.rfm
+
+rfm_degenerate interior-triangulated.rfm interior-degenerate.rfm \
+    --verbose
+
+rfm_lint interior-degenerate.rfm
+
+/usr/bin/time rfm_direct interior-degenerate.rfm interior-direct.rfm \
+    --sun-azimuth 35 \
+    --sun-elevation 40 \
+    --sun-sides 24 \
+    --sun-intensity 1.4 \
+    --verbose
+
+# rfm2wrl interior-direct.rfm interior-direct.wrl
+# open interior-direct.wrl
+
+/usr/bin/time rfm_indirect interior-direct.rfm interior-indirect.rfm \
+    --samples-per-vertex 1000 \
+    --max-pass 1 \
+    --sky-color $SKY_COLOR \
+    --direct-illumination-scale 1 \
+    --diffuse-coefficient 0.45 \
+    --bounces 3 \
+    --debug
+
+rfm2wrl interior-indirect.rfm out.wrl \
+    --sky-color $SKY_COLOR 
+
+open out.wrl

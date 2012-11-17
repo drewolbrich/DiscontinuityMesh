@@ -1,0 +1,28 @@
+newmtl Red
+Ns 127
+Ka 0.8 0.8 0.8
+Kd 1 0.8 0.8
+Ks 0 0 0
+d 1
+illum 2 
+newmtl Blue
+Ns 127
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 1
+Ks 0 0 0
+d 1
+illum 2 
+newmtl Green
+Ns 127
+Ka 0.8 0.8 0.8
+Kd 0.8 1 0.8
+Ks 0 0 0
+d 1
+illum 2 
+newmtl Material1
+Ns 127
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+d 1
+illum 2 

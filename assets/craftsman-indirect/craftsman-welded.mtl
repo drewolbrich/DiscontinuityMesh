@@ -1,0 +1,20 @@
+newmtl Tan
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.72549
+Ks 0 0 0
+Ns 127
+newmtl Roof
+Ka 0.8 0.8 0.8
+Kd 0.294118 0.294118 0.294118
+Ks 0 0 0
+Ns 127
+newmtl White
+Ka 0.8 0.8 0.8
+Kd 1 1 1
+Ks 0 0 0
+Ns 127
+newmtl Grass
+Ka 0.8 0.8 0.8
+Kd 0.454902 0.639216 0.345098
+Ks 0 0 0
+Ns 127

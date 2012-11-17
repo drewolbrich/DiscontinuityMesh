@@ -1,0 +1,12 @@
+#!/bin/csh -f
+
+if ($1 == "") then
+    echo "Usage: RUN points"
+    exit
+endif
+
+set echo = 1
+
+hemi_dist_test.debug $1 out.rfm
+rfm2obj.debug out.rfm out.obj
+open out.obj

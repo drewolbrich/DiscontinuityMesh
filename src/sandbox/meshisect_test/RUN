@@ -1,0 +1,6 @@
+#!/bin/csh -fxe
+
+src_build debug
+meshisect_test.debug
+rfm2obj.debug out.rfm out.obj
+open out.obj

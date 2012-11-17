@@ -1,0 +1,6 @@
+
+Integrate the following into my code guidelines if I ever port them over:
+
+- When references are used as function arguments, they must always be const.
+    If you want a function to modify an argument, pass a pointer.
+    This way, at the call site, it's clear which arguments are going to be modified.

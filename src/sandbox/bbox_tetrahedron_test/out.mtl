@@ -1,0 +1,4 @@
+newmtl BoxMaterial
+Kd 1 0.23 0.2
+d 1
+illum 1 

@@ -1,0 +1,38 @@
+#!/usr/bin/python
+
+# Checks that all source files are less than 100 columns wide.
+
+import os
+import sys
+
+rootDir = 'retro'
+
+pathList = os.getcwd().split('/')
+
+rootPath = ''
+while pathList != []:
+    path = '/'.join(pathList)
+    if pathList[-1:] == [rootDir]:
+        if os.access(path + '/SConstruct', os.R_OK):
+            rootPath = path
+            break
+    pathList = pathList[:-1]
+
+if rootPath == '':
+    print 'Could not find ' + rootDir + 'project root directory.'
+
+os.chdir(rootPath)
+
+for root, dirs, files in os.walk(rootPath + '/src'):
+    if '.svn' in dirs:
+        dirs.remove('.svn')
+    for file in files:
+        if file.endswith('.cpp') or file.endswith('.h'):
+            filename = os.path.join(root, file)
+            infile = open(filename, 'r')
+            line = infile.readline()
+            while line:
+                if len(line) > 99:
+                    print filename
+                    break
+                line = infile.readline()

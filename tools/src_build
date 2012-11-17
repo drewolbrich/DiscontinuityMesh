@@ -1,0 +1,85 @@
+#!/usr/bin/python
+
+import os
+import sys
+
+if '--help' in sys.argv \
+       or 'help' in sys.argv:
+    print "Usage: src_build [opt | debug] [all] [clean] [verbose] [root] [notags] [-k]"
+    sys.exit(0)
+
+# Make sure all the arguments are valid.
+for arg in sys.argv[1:]:
+    if not arg in ['opt', 'debug', 'all', 'clean', 'verbose', 'root', 'notags', '-k']:
+        print "Unrecognized argument:", arg
+        sys.exit(0)
+
+# Get the number of processors on this machine.
+# Under Windows, this information is available via an environment variable.
+processors = os.environ.get("NUMBER_OF_PROCESSORS")
+if processors == None:
+    # Under Mac OS X and Linux, we can query this information by running sysctl.
+    processors = os.popen("sysctl -n hw.ncpu").readline().strip()
+
+command = 'scons'
+
+# Only use more than one CPU in verbose mode, so that there won't be
+# interleaving of the output of multiple concurrent jobs, which would
+# make it harder to follow.
+if not 'verbose' in sys.argv:
+    command += ' --jobs=' + processors
+
+# By default, build only the local directory and everything it depends on.
+# This is overridden by any '-D' flags that follow it.
+command += ' --search-up'
+
+if 'opt' in sys.argv:
+    # Build only optimized libraries and executables.
+    command += ' opt=1'
+
+if 'debug' in sys.argv:
+    # Build only debug libraries and executables. This is the default.
+    command += ' debug=1'
+    
+if 'all' in sys.argv:
+    # Build both debug and optimized versions of everything, from the root directory.
+    command += ' -D debug=1 opt=1'
+
+if 'clean' in sys.argv:
+    # Remove all object files, libraries, and executables.
+    command += ' --clean'
+
+if 'verbose' in sys.argv:
+    # Print out each command line before it's executed.
+    command += ' verbose=1'
+else:
+    # Unless verbose output is requested, suppress SCons status messages.
+    # We use -Q instead of -s, because -s would suppress all output, including
+    # the print statements in our SConstruct file.
+    command += ' -Q'
+
+if 'root' in sys.argv:
+    # Act as if this script was run in the project root directory.
+    command += ' -D'
+
+if 'notags' in sys.argv:
+    # Don't rebuild the TAGS file.
+    command += ' tags=0'
+
+if '-k' in sys.argv:
+    # Keep going after errors are encountered. This is used when building within Emacs.
+    command += ' -k'
+
+if 'verbose' in sys.argv:
+    print command
+
+# If the compile fails, the result of the call to os.system will be 512 under Mac OS X.
+# The high byte is the exit status, and the low byte is the number of the signal that killed
+# the process. Under Windows, it'd just be the exit status directly.
+# We can't return that value directly to sys.exit, only the lowest seven bits are
+# maintained, and 512 mod 128 is 0, which will
+# be interpreted as success, not failure. The "!= 0" expression below takes care of this
+# by returning 1 on failure.
+result = os.system(command) != 0
+
+sys.exit(result)

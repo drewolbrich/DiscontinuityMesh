@@ -1,0 +1,42 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+set OFFSET = 100
+set INVERSE_OFFSET = -100
+
+obj2rfm overhang.obj overhang.rfm \
+    --verbose
+
+rfm_triangulate overhang.rfm overhang-triangulate.rfm \
+    --verbose
+
+rfm_transform overhang-triangulate.rfm overhang-triangulate.rfm --translate $OFFSET 0 0 
+
+/usr/bin/time rfm_direct overhang-triangulate.rfm overhang-direct.rfm \
+    --sun-azimuth 240 \
+    --sun-elevation 40 \
+    --sun-sides 12 \
+    --sun-color 1 1 1 \
+    --sun-intensity 1 \
+    --debug
+
+# rfm2wrl overhang-direct.rfm out.wrl
+# open out.wrl
+# exit
+
+/usr/bin/time rfm_indirect overhang-direct.rfm overhang-indirect.rfm \
+    --samples-per-vertex 100 \
+    --max-pass 1 \
+    --sky-color $SKY_COLOR \
+    --direct-illumination-scale 0.7 \
+    --diffuse-coefficient 0.45 \
+    --bounces 3 \
+    --debug
+
+rfm_transform overhang-indirect.rfm overhang-indirect.rfm --translate $INVERSE_OFFSET 0 0 
+
+rfm2wrl overhang-indirect.rfm out.wrl \
+    --sky-color $SKY_COLOR 
+
+open out.wrl

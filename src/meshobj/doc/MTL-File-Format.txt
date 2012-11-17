@@ -1,0 +1,153 @@
+
+  MTL Files
+  Material Definitions for OBJ Files
+
+------------------------------------------------------------------------
+
+These are some examples of MTL files. An MTL file is an auxilliary file
+containing definitions of materials that may be accessed by an OBJ file.
+The OBJ file must specify the name of the MTL file by a command such as
+
+        mltlib file_name
+      
+
+It is presumed that the MTL file names and defines various materials,
+such as, perhaps, "shinyred" or "iron". Then, within the OBJ file, the
+command
+
+        usemtl shinyred
+      
+
+indicates that all subsequence faces should be rendered with this
+material, until a new material is invoked.
+
+An MTL file contains a sequence of definitions of materials. Each
+definition begins with a newmtl statement that defines the name of the
+material, followed by lines specifying particular properties.
+
+Here is a sample definition of one material:
+
+        newmtl shinyred
+        Ka  0.1986  0.0000  0.0000
+        Kd  0.5922  0.0166  0.0000
+        Ks  0.5974  0.2084  0.2084
+        illum 2
+        Ns 100.2237
+      
+
+MTL files are:
+
+    ASCII;
+
+Comments begin with a '#' character in column 1. Blank lines may be
+inserted for clarity. Otherwise, the file consists of a sequence of
+*newmtl* statements, followed by a definition of various properties for
+that material.
+
+The quantities that may be defined for a material include:
+
+Ka r g b
+    defines the ambient color of the material to be (r,g,b). The default
+    is (0.2,0.2,0.2); 
+Kd r g b
+    defines the diffuse color of the material to be (r,g,b). The default
+    is (0.8,0.8,0.8); 
+Ks r g b
+    defines the specular color of the material to be (r,g,b). This color
+    shows up in highlights. The default is (1.0,1.0,1.0); 
+d alpha
+    defines the transparency of the material to be alpha. The default is
+    1.0 (not transparent at all) Some formats use Tr instead of d; 
+Tr alpha
+    defines the transparency of the material to be alpha. The default is
+    1.0 (not transparent at all). Some formats use d instead of Tr; 
+Ns s
+    defines the shininess of the material to be s. The default is 0.0; 
+illum n
+    denotes the illumination model used by the material. illum = 1
+    indicates a flat material with no specular highlights, so the value
+    of Ks is not used. illum = 2 denotes the presence of specular
+    highlights, and so a specification for Ks is required. 
+map_Ka filename
+    names a file containing a texture map, which should just be an ASCII
+    dump of RGB values; 
+
+Reference:
+
+   1. The Alias Wavefront website. <http://www.aliaswavefront.com/>
+
+Files you may copy:
+
+     primary.mtl, defines simple primary color materials;
+     example.mtl, defines three materials;
+
+------------------------------------------------------------------------
+Last revised on 14 June 2004.
+
+
+
+------------------
+http://p212.ezboard.com/fnendowingsmiraifrm19.showMessage?topicID=28.topic
+
+I wasn't sure where to post this, so uhm.. I'm posting it here ;).
+
+I've been working on my own little .obj file utility for a while now (
+host1.bondware.com/~syydr...sage=11958 ) and spent about a week
+scouring the web trying to find information on the .mtl file format. 
+This is what I came up with...
+
+
+Ns = Phong specular component. Ranges from 0 to 1000. (I've seen
+    various statements about this range (see below))
+Kd = Diffuse color weighted by the diffuse coefficient.
+Ka = Ambient color weighted by the ambient coefficient.
+Ks = Specular color weighted by the specular coefficient.
+d = Dissolve factor (pseudo-transparency). Values are from 0-1. 0 is
+    completely transparent, 1 is opaque.
+Ni = Refraction index. Values range from 1 upwards. A value of 1 will
+    cause no refraction. A higher value implies refraction.
+illum = (0, 1, or 2) 0 to disable lighting, 1 for ambient & diffuse
+    only (specular color set to black), 2 for full lighting (see below)
+sharpness = ? (see below)
+map_Kd = Diffuse color texture map.
+map_Ks = Specular color texture map.
+map_Ka = Ambient color texture map.
+map_Bump = Bump texture map.
+map_d = Opacity texture map.
+refl = reflection type and filename (?)
+
+
+...I've also seen values of 3 and 4 for 'illum'... when there's a 3
+there, there's often a 'sharpness' attribute, but I didn't find any
+explanation. And I think the 4 illum value is supposed to denote
+two-sided polygons, but I kinda get the impression that some people
+just make stuff up and add whatever they want to these files, so there
+could be anything in there ;). Of course Poser only writes out a few
+of the above and apparently ignores many of the above when reading as
+well.
+
+Also for the Ns (OpenGL Shininess) value, OpenGL wants this range to
+be 0-128... one source said tha the wavefront spec was 0-1000 (and
+I've seen many .obj files with values in the 400-700 range), but the
+PolyTrans people say 0-200 and they've been refining thier converter
+program for over a decade (shrug). Of course Poser seems to use a
+range of 1-100, so I don't suppose you can ever get this value
+'correct' for all apps... Currently Wings3D currently always writes
+'80' for this value ;). I haven't checked Bryce or other apps yet... 
+since my app is mostly geared towards Poser, I decided to cap it at
+100.
+
+For the 'd' record (transparency), Wings3D always writes a '1.0', even
+when the material inside Wings is semi-transparent. When I read this
+value in my program, I store it as the alpha value of the Diffuse
+component (which OpenGL uses) and just write that value back out from
+there on export.
+
+If anyone can add additional info to this, I'd appreciate it... the
+only 2 values that Wings needs to fix are the 'Ns' and 'd' records, as
+far as I can tell.
+
+Thanks,
+
+- Keith
+spanki@mindspring.com

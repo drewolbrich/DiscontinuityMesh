@@ -1,0 +1,14 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+rfm_relight boxworld-indirect.rfm out.rfm \
+    --verbose \
+    --indirect-intensity 1.5 \
+    --indirect-saturation 1.5
+
+rfm2wrl out.rfm out.wrl \
+    --verbose \
+    --sky-color $SKY_COLOR 
+
+open out.wrl

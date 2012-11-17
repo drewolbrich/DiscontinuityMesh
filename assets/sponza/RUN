@@ -1,0 +1,30 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+/usr/bin/time obj2rfm sponza.obj sponza.rfm --reset-normals --debug
+
+/usr/bin/time rfm_degenerate sponza.rfm sponza-degenerate.rfm --debug
+
+/usr/bin/time rfm_split sponza-degenerate.rfm sponza-split.rfm --debug
+
+/usr/bin/time rfm_degenerate sponza-split.rfm sponza-split.rfm --debug
+
+/usr/bin/time rfm_direct sponza-split.rfm sponza-direct.rfm \
+    --sun-azimuth 35 \
+    --sun-elevation 80 \
+    --sun-sides 6 \
+    --debug
+
+/usr/bin/time rfm_indirect sponza-direct.rfm sponza-indirect.rfm \
+    --sky-color $SKY_COLOR \
+    --direct-illumination-scale 0.75 \
+    --diffuse-coefficient 0.35 \
+    --bounces 3 \
+    --debug
+
+rfm2wrl sponza-indirect.rfm out.wrl \
+    --sky-color $SKY_COLOR \
+    --debug
+
+# open out.wrl

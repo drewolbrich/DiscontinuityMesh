@@ -1,0 +1,51 @@
+#!/usr/bin/python
+
+# Runs all integration tests (all retro/src/*/test/test.py scripts).
+
+import os
+import sys
+
+rootDir = 'retro'
+
+pathList = os.getcwd().split('/')
+
+rootPath = ''
+while pathList != []:
+    path = '/'.join(pathList)
+    if pathList[-1:] == [rootDir]:
+        if os.access(path + '/SConstruct', os.R_OK):
+            rootPath = path
+            break
+    pathList = pathList[:-1]
+
+if rootPath == '':
+    print 'Could not find ' + rootDir + 'project root directory.'
+
+os.chdir(rootPath)
+result = os.system("tools/build all")
+if result & 255 != 0:
+    print "Interrupted."
+    sys.exit(result)
+if result != 0:
+    print "Failed."
+    sys.exit(result)
+
+for root, dirs, files in os.walk(rootPath + '/src'):
+    if '.svn' in dirs:
+        dirs.remove('.svn')
+    for dir in dirs:
+        if dir == 'test':
+            testDir = os.path.join(root, dir)
+            testScript = testDir + '/test.py'
+            if os.access(testScript, os.X_OK):
+                os.chdir(testDir)
+                result = os.system(testScript)
+                if result & 255 != 0:
+                    print "Interrupted."
+                    sys.exit(result)
+                if result != 0:
+                    print "Failed."
+                    sys.exit(result)
+
+print "Success."
+sys.exit(0)

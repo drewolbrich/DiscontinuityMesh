@@ -1,0 +1,8 @@
+#!/bin/csh -fx
+
+obj2rfm.debug cube-stack.obj out.rfm --verbose
+rfm_triangulate.debug out.rfm out.rfm --verbose
+rfm_split.debug out.rfm out.rfm --verbose
+rfm2obj.debug out.rfm out.obj --verbose
+
+open out.obj

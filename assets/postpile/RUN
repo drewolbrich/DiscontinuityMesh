@@ -1,0 +1,48 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+obj2rfm postpile.obj postpile.rfm \
+    --reset-normals \
+    --crease-angle 59 \
+    --verbose
+
+rfm_triangulate postpile.rfm postpile-triangulate.rfm \
+    --verbose
+
+rfm_degenerate postpile-triangulate.rfm postpile-degenerate.rfm \
+    --verbose
+
+rfm_print postpile-degenerate.rfm
+
+/usr/bin/time rfm_direct postpile-degenerate.rfm postpile-direct.rfm \
+    --sun-azimuth 155 \
+    --sun-elevation 32 \
+    --sun-sides 6 \
+    --sun-color 1 1 0.9 \
+    --verbose
+
+# rfm2obj postpile-direct.rfm out.obj
+# open out.obj
+# exit
+
+rfm2wrl postpile-direct.rfm out.wrl \
+    --sky-color $SKY_COLOR
+open out.wrl &
+
+echo 
+
+/usr/bin/time rfm_indirect postpile-direct.rfm postpile-indirect.rfm \
+    --samples-per-vertex 100 \
+    --max-pass 1 \
+    --sky-color $SKY_COLOR \
+    --direct-illumination-scale 0.7 \
+    --diffuse-coefficient 0.35 \
+    --bounces 3 \
+    --debug
+
+rfm2wrl postpile-indirect.rfm out.wrl \
+    --sky-color $SKY_COLOR 
+open out.wrl &
+
+echo 

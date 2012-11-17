@@ -1,0 +1,24 @@
+#!/bin/csh -fex
+
+set debug = #.debug
+
+# gamma
+# set sky_color = "0.312 0.451 0.871"
+
+# linear
+set sky_color = "0.589 0.696 0.939"
+
+/usr/bin/time rfm_indirect$debug craftsman-direct.rfm out.rfm --verbose \
+    --samples-per-vertex 100 \
+    --error-tolerance 0.01 \
+    --min-edge-length 0.1 \
+    --max-pass 1 \
+    --sky-color $sky_color \
+    --direct-illumination-scale 0.7 \
+    --diffuse-coefficient 0.5 \
+    --bounces 3 \
+    $*
+
+rfm2wrl$debug out.rfm out.wrl --sky-color $sky_color
+
+open out.wrl

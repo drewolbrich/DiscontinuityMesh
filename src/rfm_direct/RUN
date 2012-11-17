@@ -1,0 +1,42 @@
+#!/bin/csh -f
+
+if ("$1" == "") then
+    ls -1 test/models/*.obj test/models/*.rfm | sed 's,test/models/,,g' | sed 's,.obj,,g' | \
+        sed 's,.rfm,,g' | rs
+    exit
+endif
+
+set test_name = $1
+shift
+
+set temp_rfm_file = /var/tmp/rfm_direct.temp.rfm
+set temp_obj_file = /var/tmp/rfm_direct.temp.obj
+set temp_wrl_file = /var/tmp/rfm_direct.temp.wrl
+
+if (-e test/models/${test_name}.rfm) then
+    set command = "cp test/models/${test_name}.rfm $temp_rfm_file"
+else
+    set command = "obj2rfm.debug test/models/${test_name}.obj $temp_rfm_file --reset-normals --crease-angle 50"
+endif
+echo $command
+$command
+if ($status != 0) exit
+
+set command = "rfm_direct.debug $temp_rfm_file $temp_rfm_file --debug $*"
+
+echo $command
+$command
+if ($status != 0) exit
+
+set command = "rfm2obj.debug $temp_rfm_file $temp_obj_file"
+echo $command
+$command
+if ($status != 0) exit
+
+set command = "rfm2wrl.debug $temp_rfm_file $temp_wrl_file --sky-color 0.2 0.2 0.2"
+# set command = "rfm2wrl.debug $temp_rfm_file $temp_wrl_file"
+echo $command
+$command
+if ($status != 0) exit
+
+open $temp_wrl_file

@@ -1,0 +1,36 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+obj2rfm box.obj box.rfm \
+    --reset-normals
+
+boxworld box.rfm boxworld.rfm --box-count 300
+
+# rfm2obj boxworld.rfm boxworld.obj
+# open boxworld.obj
+
+/usr/bin/time rfm_direct boxworld.rfm boxworld-direct.rfm \
+    --sun-azimuth 120 \
+    --sun-elevation 60 \
+    --sun-sides 6 \
+    --sun-color 1 1 0.8 \
+    --verbose
+
+# rfm2obj boxworld-direct.rfm out.obj
+# open out.obj
+# exit
+
+/usr/bin/time rfm_indirect boxworld-direct.rfm boxworld-indirect.rfm \
+    --samples-per-vertex 100 \
+    --max-pass 1 \
+    --sky-color $SKY_COLOR \
+    --direct-illumination-scale 0.7 \
+    --diffuse-coefficient 0.35 \
+    --bounces 3 \
+    --debug
+
+rfm2wrl boxworld-indirect.rfm out.wrl \
+    --sky-color $SKY_COLOR 
+
+open out.wrl

@@ -1,0 +1,83 @@
+
+- Possible new features:
+    - Polygons with holes.
+    - Multiple meshes per file.
+    - Store material definitions as XML in a string for each mesh.
+        - This would be less awkward than the existing scheme of embedding array indices
+            in the names of the attributes.
+        - Write functions to convert the XML to/from C++ data structures, so that
+            library users wouldn't have to manipulate it directly.
+
+- Before designing this for real, I must do experiments to see what
+    allocation scheme would be most efficient.
+
+- I'm guessing I'd want to use a pool to improve locality, which could help cache performance.
+    - Do experiments to make sure this would really help.
+
+- Using a pool could also reduce overhead, because it wouldn't have to redundantly
+    store the size of each memory block.
+    - Since the sizes of each allocated chunk could vary based on how many attributes
+        each element had, would this mean I'd have to write my own pool,
+        or could I still use boost::pool somehow?
+        - I assume I couldn't use boost::pool because it needs to know how large
+            each memory chunk is at compile time.
+        - For the design of this, look at 
+            http://www.boost.org/doc/libs/1_42_0/libs/pool/doc/concepts.html
+            under "Simple Segregated Storage".
+
+- Questions:
+    - Should attributes be allocated together, or should all data and attributes
+        for each mesh element?
+
+- If I wanted to group all the data for each mesh element together, but still support
+    multiple attributes, how would this work?
+    - For each mesh, each element type would have a list of the attributes assigned to it.
+    - Adding new attributes to an element type would be expensive but this 
+        would happen rarely.
+
+- Problem: Connectivity information would require variable sized arrays for each element,
+    which wouldn't lend themselves very well to being stored in pools.
+    Could I do something funky like assumed a fixed number of adjacent elements,
+    and then only allocate storage dynamically for the exceptional cases?
+
+- Vertex
+    adjacent edges (assume 4)  <-- I really should determine these by examinine existing models.
+    adjacent faces (assume 4)
+    position
+    attributes
+
+- Edge
+    adjacent vertices (assume 2)
+    adjacent faces (assume 2)
+    attributes
+
+- Face
+    adjacent vertices (assume 4)
+    adjacent edges (assume 4)
+    attributes
+    - Face vertices (assume 4)
+        attributes
+
+PartiallyFixedVector
+    - Template parameters:
+        - The type stored in the vector
+        - The type used to store the size
+        - The fixed size allocated for the vector
+        - Allocator
+    - Member variables:
+        - A size
+        - An array of elements 
+    - If the size is greater than the fixed size, storage for the remainder
+        of the vector is allocated dynamically, and the memory used
+        by the last fixed element in the vector is used to store a pointer
+        to the dynamically allocated vector of elements.
+    - Iterators
+    - Anything else required by STL compatibility
+
+- The extension of the new files could be ".fm" (Fiacso Mesh)
+
+- Call the new repository "fiasco".
+
+- Could I do this in terms of the half-edges described in the OpenMesh paper?
+    - I could store face vertex information in each half edge.
+    - Could this be extended to handle holes?

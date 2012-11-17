@@ -1,0 +1,35 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+obj2rfm blocks.obj blocks.rfm \
+    --reset-normals
+
+rfm_degenerate blocks.rfm blocks-degenerate.rfm \
+    --verbose
+
+rfm_direct blocks-degenerate.rfm blocks-direct.rfm \
+    --sun-azimuth 180 \
+    --sun-elevation 60 \
+    --verbose
+
+# rfm2obj blocks-direct.rfm out.obj
+# open out.obj
+
+# rfm2wrl blocks-direct.rfm out.wrl \
+#     --sky-color $SKY_COLOR
+# open out.wrl
+# exit
+
+rfm_indirect blocks-direct.rfm blocks-indirect.rfm \
+    --samples-per-vertex 100 \
+    --max-pass 1 \
+    --sky-color $SKY_COLOR \
+    --direct-illumination-scale 0.7 \
+    --diffuse-coefficient 0.4 \
+    --bounces 4 \
+    --debug
+
+rfm2wrl blocks-indirect.rfm out.wrl \
+    --sky-color $SKY_COLOR 
+open out.wrl

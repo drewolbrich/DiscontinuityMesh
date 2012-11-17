@@ -1,0 +1,12 @@
+#!/bin/csh -f
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+rfm_relight interior-indirect.rfm out.rfm \
+    --indirect-intensity 3 \
+    --indirect-saturation 3
+
+rfm2wrl out.rfm out.wrl \
+    --sky-color $SKY_COLOR 
+
+open out.wrl

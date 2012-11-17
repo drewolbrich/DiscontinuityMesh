@@ -1,0 +1,21 @@
+newmtl LightSource
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+Ns 127
+Ke 200 200 200
+newmtl Material1
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0 0 0
+Ns 127
+newmtl Material2
+Ka 0.8 0.8 0.8
+Kd 1 1 0.756863
+Ks 0 0 0
+Ns 127
+newmtl Material3
+Ka 0.8 0.8 0.8
+Kd 1 0.866667 0.866667
+Ks 0 0 0
+Ns 127

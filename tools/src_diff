@@ -1,0 +1,33 @@
+#!/bin/csh -f
+
+if ($1 == "") then
+    echo "Usage: $0:t file [revision]"
+    echo "Which: Uses xxdiff to graphically display changes you've made"
+    echo "    to your local working copy of a file."
+    echo "Options:"
+    echo "    You may specify an optional revision number to perform"
+    echo "    the comparison against the repository, or HEAD to compare"
+    echo "    against the most recently checked in version."
+    exit
+endif
+
+set file = $1
+
+if ($2 != "") then
+    set revision = "$2"
+    set left_title = "Revision $revision of $file in the Subversion repository"
+else
+    set revision = "BASE"
+    set left_title = "Local version of $file before changes were made"
+endif
+
+set right_title = "Your local copy of $file" 
+
+set tempfile = /var/tmp/rdiff.$$.tmp
+
+svn cat -r $revision $file > $tempfile
+if ($status) exit
+
+xxdiff --title1 "$left_title" --title2 "$right_title" $tempfile $file
+
+rm $tempfile

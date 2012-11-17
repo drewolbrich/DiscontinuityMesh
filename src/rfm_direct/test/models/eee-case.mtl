@@ -1,0 +1,25 @@
+newmtl Groundplane
+Ka 0.8 0.8 0.8
+Kd 1 1 1
+Ks 0 0 0
+Ns 127
+newmtl Cylinder
+Ka 0.8 0.8 0.8
+Kd 1 1 1
+Ks 0 0 0
+Ns 127
+newmtl Red
+Ka 0.8 0.8 0.8
+Kd 1 0 0
+Ks 0 0 0
+Ns 127
+newmtl Material1
+Ka 0.8 0.8 0.8
+Kd 0 0 1
+Ks 0 0 0
+Ns 127
+newmtl Material2
+Ka 0.8 0.8 0.8
+Kd 1 1 0
+Ks 0 0 0
+Ns 127

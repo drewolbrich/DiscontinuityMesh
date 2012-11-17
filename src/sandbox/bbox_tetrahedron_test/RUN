@@ -1,0 +1,6 @@
+#!/bin/csh -fxe
+
+src_build debug
+bbox_tetrahedron_test.debug
+rfm2obj.debug out.rfm out.obj
+open out.obj

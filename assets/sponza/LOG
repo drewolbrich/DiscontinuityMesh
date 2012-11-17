@@ -1,0 +1,90 @@
+sponza> RUN
+set SKY_COLOR = 0.589 0.696 0.939
+/usr/bin/time obj2rfm sponza.obj sponza.rfm --reset-normals --debug
+obj2rfm: Reading OBJ file "sponza.obj".
+obj2rfm: Calculating new mesh normals.
+obj2rfm: Writing RFM file "sponza.rfm".
+obj2rfm: Done.
+        6.93 real         6.10 user         0.16 sys
+/usr/bin/time rfm_degenerate sponza.rfm sponza-degenerate.rfm --debug
+rfm_degenerate: Reading RFM file "sponza.rfm".
+rfm_degenerate: Removed 3078 faces.
+rfm_degenerate: Writing RFM file "sponza-degenerate.rfm".
+        4.93 real         4.71 user         0.11 sys
+/usr/bin/time rfm_split sponza-degenerate.rfm sponza-split.rfm --debug
+rfm_split: Reading RFM file "sponza-degenerate.rfm".
+rfm_split: Splitting mesh.
+rfm_split: Splitting mesh edges.
+rfm_split: Splitting mesh faces.
+rfm_split: Writing RFM file "sponza-split.rfm".
+       17.93 real        17.66 user         0.19 sys
+/usr/bin/time rfm_direct sponza-split.rfm sponza-direct.rfm --sun-azimuth 35 --sun-elevation 80 --sun-sides 6 --debug
+rfm_direct: Reading RFM file "sponza-split.rfm".
+rfm_direct: Welding perimeter edges.
+rfm_direct: Merged 0 edges into other edges.
+rfm_direct: Triangulating faces.
+rfm_direct: Triangulated 0 faces.
+rfm_direct: Input faces: 81981
+rfm_direct: Calculating shadow discontinuity line segments.
+rfm_direct: Retriangulating mesh.
+rfm_direct: Splitting mesh edges.
+rfm_direct: Splitting mesh faces.
+rfm_direct: Discontinuity mesh faces: 99620 (1.21 times input faces)
+rfm_direct: Discontinuity mesh vertices: 51520
+rfm_direct: Distant area light sources: 1
+rfm_direct: Distant light faces: 6
+rfm_direct: Local light faces: 0
+rfm_direct: AABB tree size statistics:
+    Level 0: 1 node, average size = 34.82, min size = 34.82, max size = 34.82
+    Level 1: 2 nodes, average size = 18.2041, min size = 17.7581, max size = 18.65
+    Level 2: 4 nodes, average size = 16.485, min size = 15.56, max size = 17.41
+    Level 3: 8 nodes, average size = 15.739, min size = 15.02, max size = 16.56
+    Level 4: 16 nodes, average size = 13.7088, min size = 11.66, max size = 15.6
+    Level 5: 32 nodes, average size = 11.4379, min size = 7.89, max size = 15.285
+    Level 6: 64 nodes, average size = 9.25421, min size = 4.792, max size = 15.194
+    Level 7: 128 nodes, average size = 7.47862, min size = 0.680001, max size = 14.44
+    Level 8: 256 nodes, average size = 5.83599, min size = 0.42, max size = 11.6315
+    Level 9: 512 nodes, average size = 4.56352, min size = 0.42, max size = 11.613
+    Level 10: 1024 nodes, average size = 3.45019, min size = 0.168182, max size = 11.6099
+    Level 11: 2048 nodes, average size = 2.42313, min size = 0.0648186, max size = 11.605
+    Level 12: 4096 nodes, average size = 1.65562, min size = 0.0146465, max size = 11.594
+    Level 13: 8188 nodes, average size = 1.09768, min size = 0.00133801, max size = 11.58
+    Level 14: 16328 nodes, average size = 0.711621, min size = 0.000148773, max size = 10.887
+    Level 15: 31702 nodes, average size = 0.466619, min size = 6.67572e-06, max size = 7.99232
+    Level 16: 39842 nodes, average size = 0.288031, min size = 9.53674e-07, max size = 6.88026
+    Level 17: 17212 nodes, average size = 0.203092, min size = 3.8147e-06, max size = 6.06925
+rfm_direct: Shading mesh vertices.
+rfm_direct: AABB tree query statistics:
+    Queries: 864639
+    Average bounding box tests per query: 338
+    Min bounding box tests per query: 1
+    Max bounding box tests per query: 2641
+    Average object tests per query: 191
+    Min object tests per query: 0
+    Max object tests per query: 1329
+rfm_direct: AABB queries per mesh vertex: 16.7
+rfm_direct: AABB queries per mesh vertex per light source face: 2.7
+rfm_direct: Average face vertex color intensity: nan
+rfm_direct: Min face vertex color intensity: -0.467346
+rfm_direct: Max face vertex color intensity: 0.999157
+rfm_direct: Scale all light source intensities by 1.00084 to normalize the max intensity.
+rfm_direct: Writing RFM file "sponza-direct.rfm".
+rfm_direct: CPU time used: 1 hour and 49 minutes (6576 seconds)
+rfm_direct: RAM used: 104 megabytes
+     6684.42 real      6576.52 user        54.42 sys
+/usr/bin/time rfm_indirect sponza-direct.rfm sponza-indirect.rfm --sky-color 0.589 0.696 0.939 --direct-illumination-scale 0.75 --diffuse-coefficient 0.35 --bounces 3 --debug
+rfm_indirect: Reading RFM file "sponza-direct.rfm".
+rfm_indirect: Samples per unique normal per vertex: 100
+rfm_indirect: Bounce 1.
+rfm_indirect: Shading 99620 faces.
+rfm_indirect: Bounce 2.
+rfm_indirect: Shading 99620 faces.
+rfm_indirect: Bounce 3.
+rfm_indirect: Shading 99620 faces.
+rfm_indirect: Total samples: 119544000
+rfm_indirect: Writing RFM file "sponza-indirect.rfm".
+    18297.52 real     18179.25 user        55.49 sys
+rfm2wrl sponza-indirect.rfm out.wrl --sky-color 0.589 0.696 0.939 --debug
+rfm2wrl: Reading RFM file "sponza-indirect.rfm".
+rfm2wrl: Writing WRL file "out.wrl".
+rfm2wrl: Done.

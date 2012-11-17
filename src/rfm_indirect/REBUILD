@@ -1,0 +1,13 @@
+#!/bin/csh -fxe
+
+obj2rfm.debug ../rfm_discmesh/test/models/craftsman-colored.obj out.rfm --reset-normals --crease-angle 50
+
+rfm_weld.debug out.rfm out.rfm --verbose
+rfm_split.debug out.rfm out.rfm --flag-new-edges --verbose
+rfm_weld.debug out.rfm out.rfm --weld-flagged-edges --verbose
+
+cp out.rfm ../rfm_discmesh/test/models/craftsman-welded.rfm
+
+rfm_indirect.debug out.rfm out.rfm
+rfm2wrl out.rfm out.wrl
+open out.wrl

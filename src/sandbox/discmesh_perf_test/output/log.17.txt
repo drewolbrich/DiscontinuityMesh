@@ -1,0 +1,49 @@
+rfm_discmesh output/model.17.rfm temp.rfm --sun-azimuth 210 --sun-elevation 65 --debug
+rfm_discmesh: Reading RFM file "output/model.17.rfm".
+rfm_discmesh: Input faces: 13872
+rfm_discmesh: Calculating shadow discontinuity line segments.
+rfm_discmesh: Retriangulating mesh.
+rfm_discmesh: Splitting mesh edges.
+rfm_discmesh: Splitting mesh faces.
+rfm_discmesh: Discontinuity mesh faces: 88288 (6.36 times input faces)
+rfm_discmesh: Discontinuity mesh vertices: 46456
+rfm_discmesh: Distant area light sources: 1
+rfm_discmesh: Distant light faces: 12
+rfm_discmesh: Local light faces: 0
+rfm_discmesh: AABB tree size statistics:
+    Level 0: 1 node, average size = 169, min size = 169, max size = 169
+    Level 1: 2 nodes, average size = 169, min size = 169, max size = 169
+    Level 2: 4 nodes, average size = 88.1218, min size = 85.4871, max size = 89
+    Level 3: 8 nodes, average size = 86.2758, min size = 85.3081, max size = 89
+    Level 4: 16 nodes, average size = 47.6257, min size = 45.0275, max size = 49
+    Level 5: 32 nodes, average size = 45.5525, min size = 43.7444, max size = 49
+    Level 6: 64 nodes, average size = 27.0784, min size = 23.3984, max size = 29
+    Level 7: 128 nodes, average size = 24.6577, min size = 20.6097, max size = 29
+    Level 8: 256 nodes, average size = 16.4926, min size = 11.5321, max size = 19
+    Level 9: 512 nodes, average size = 13.8755, min size = 9, max size = 19
+    Level 10: 1024 nodes, average size = 10.2771, min size = 4.80815, max size = 15.0275
+    Level 11: 2048 nodes, average size = 8.73813, min size = 1.61417, max size = 13.6858
+    Level 12: 4096 nodes, average size = 6.4009, min size = 0.14135, max size = 12.3366
+    Level 13: 8192 nodes, average size = 4.13628, min size = 0.0875549, max size = 10.873
+    Level 14: 16384 nodes, average size = 2.65134, min size = 0.00893545, max size = 9.57473
+    Level 15: 32734 nodes, average size = 1.71796, min size = 0.00311661, max size = 9
+    Level 16: 44350 nodes, average size = 1.12836, min size = 0.0023613, max size = 8.72351
+    Level 17: 13956 nodes, average size = 1.04271, min size = 0.00236511, max size = 6.3783
+rfm_discmesh: Shading mesh vertices.
+rfm_discmesh: AABB tree query statistics:
+    Queries: 1214126
+    Average bounding box tests per query: 116
+    Min bounding box tests per query: 1
+    Max bounding box tests per query: 299
+    Average object tests per query: 28
+    Min object tests per query: 0
+    Max object tests per query: 87
+rfm_discmesh: AABB queries per mesh vertex: 26.1
+rfm_discmesh: AABB queries per mesh vertex per light source face: 2.1
+rfm_discmesh: Average face vertex color intensity: 0.336767
+rfm_discmesh: Min face vertex color intensity: -0.0423754
+rfm_discmesh: Max face vertex color intensity: 0.998416
+rfm_discmesh: Scale all light source intensities by 1.00159 to normalize the max intensity.
+rfm_discmesh: Writing RFM file "temp.rfm".
+rfm_discmesh: CPU time used: 2 hours and 13 minutes (8014.7 seconds)
+rfm_discmesh: RAM used: 95 megabytes

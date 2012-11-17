@@ -1,0 +1,30 @@
+#!/bin/csh -fxe
+
+set sky_color = "0.589 0.696 0.939"
+
+obj2rfm temple.obj temple.rfm --reset-normals --crease-angle 50 --debug
+
+rfm_print temple.rfm
+
+rfm_split temple.rfm temple-split.rfm --debug
+
+rfm_print temple-split.rfm
+
+rfm_weld temple-split.rfm temple-welded.rfm --debug
+
+rfm_direct temple-welded.rfm temple-direct.rfm \
+    --no-emissive --sun-azimuth 70 --sun-elevation 40 --sun-sides 6 \
+    --debug
+rfm2wrl temple-direct.rfm temple-direct.wrl --sky-color $sky_color
+
+# open temple-direct.wrl
+# exit
+
+rfm_indirect temple-direct.rfm temple-indirect.rfm \
+    --max-pass 1 --bounces 3 --sky-color $sky_color \
+    --diffuse-coefficient 0.5 --direct-illumination-scale 0.7 \
+    --debug
+
+rfm2wrl temple-indirect.rfm temple-indirect.wrl --sky-color $sky_color --debug
+
+open temple-indirect.wrl

@@ -1,0 +1,37 @@
+#!/bin/csh -f
+
+set command = "obj2rfm.debug --reset-normals --crease-angle 50 craftsman-colored.obj out.rfm"
+echo $command
+$command
+if $status != 0 exit
+
+set command = "rfm_split.debug out.rfm out.rfm --flag-new-edges --verbose $*"
+echo $command
+$command
+if $status != 0 exit
+
+set command = "rfm2obj.debug out.rfm out.obj"
+echo $command
+$command
+if $status != 0 exit
+
+set command = "rfm_weld.debug out.rfm out.rfm --weld-flagged-edges --verbose"
+echo $command
+$command
+if $status != 0 exit
+
+set command = "rfm2obj.debug out.rfm out.obj"
+echo $command
+$command
+if $status != 0 exit
+
+open out.obj
+
+cp out.rfm /Users/drew/retro/src/rfm_discmesh/test/models/craftsman-welded.rfm
+
+set command = "rfm2wrl.debug out.rfm out.wrl"
+echo $command
+$command
+if $status != 0 exit
+
+# open out.wrl

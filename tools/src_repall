@@ -1,0 +1,104 @@
+#!/usr/bin/python
+
+import sys
+import glob
+import re
+import os
+from stat import *
+
+if len(sys.argv) < 3:
+    print >> sys.stderr, "Usage: src_repall [--test] [--substr] source target files..."
+    print >> sys.stderr, "Which: Replaces instances of the source string with the target"
+    print >> sys.stderr, "       string in the specified files. Only complete tokens that"
+    print >> sys.stderr, "       match the source string are modified. Strings that are"
+    print >> sys.stderr, "       embedded within tokens are not. Directories listed on"
+    print >> sys.stderr, "       the command line are ignored."
+    print >> sys.stderr, "Options:"
+    print >> sys.stderr, "       --test    Don't actually modify the files."
+    print >> sys.stderr, "       --substr  Modify all matching substrings, even if not complete tokens."
+    sys.exit(1)
+
+test_mode = False
+if sys.argv[1] == "--test":
+    test_mode = True
+    sys.argv = [sys.argv[0]] + sys.argv[2:]
+
+substring_mode = False
+if sys.argv[1] == "--substr":
+    substring_mode = True
+    sys.argv = [sys.argv[0]] + sys.argv[2:]
+
+source = sys.argv[1]
+target = sys.argv[2]
+arglist = sys.argv[3:]
+
+# Escape all regular expression metacharacters in the source string, because we
+# don't want them to confuse our regular expression pattern matching below.
+pattern = re.compile('(\(|\)|\\\\|\*|\.|\^|\$|\+|\?|\{|\[|\]|\|)')
+source = pattern.sub(r'\\\1', source)
+
+# Build a list of files. Since this is running under Windows, we have to do
+# the wildcard expansion ourselves.
+found_missing_files = False
+filelist = []
+for arg in arglist:
+    expandedarg = glob.glob(arg)
+    if expandedarg == []:
+        print >> sys.stderr, "File not found:", arg
+        found_missing_files = True
+    else:
+        filelist += expandedarg
+if found_missing_files:
+    if test_mode:
+        print >> sys.stderr, "No files would be modified."
+    else:
+        print >> sys.stderr, "No files were modified."
+    sys.exit(1)
+
+# Strip out directories from the list of files.
+new_filelist = []
+for file in filelist:
+    mode = os.stat(file)[ST_MODE]
+    if S_ISDIR(mode):
+        pass
+    else:
+        new_filelist += [file]
+filelist = new_filelist
+
+if substring_mode:
+    pattern = re.compile('(' + source + ')', re.DOTALL)
+else:
+    # This regular expression ensures that only whole C/C++ tokens are replaced, and not
+    # substrings of tokens.
+    pattern = re.compile('\\b(' + source + ')\\b', re.DOTALL)
+
+changed_files = 0
+for file in filelist:
+    f = open(file, 'r')
+    before = f.read()
+    f.close()
+    (after, count) = pattern.subn(target, before)
+    if before != after:
+        changed_files += 1
+        if test_mode:
+            if count == 1:
+                print "1 change would be made to", file
+            else:
+                print count, "changes would be made to", file
+        else:
+            f = open(file, 'w')
+            f.write(after)
+            f.close()
+            if count == 1:
+                print "1 change was made to", file
+            else:
+                print count, "changes were made to", file
+
+if changed_files == 0:
+    if test_mode:
+        print >> sys.stderr, "No files would be modified."
+    else:
+        print >> sys.stderr, "No files were modified."
+    sys.exit(1)
+
+sys.exit(0)

@@ -1,0 +1,21 @@
+newmtl m1
+Ns 2.2
+Ka 0 0 0
+Kd 1 0 1
+Ks 0.3 0.3 0.3
+d 1
+illum 2 
+newmtl m2
+Ns 2.2
+Ka 0 0 0
+Kd 0 1 0
+Ks 0.3 0.3 0.3
+d 1
+illum 2 
+newmtl m3
+Ns 2.2
+Ka 0 0 0
+Kd 0 0 1
+Ks 0.3 0.3 0.3
+d 1
+illum 2 

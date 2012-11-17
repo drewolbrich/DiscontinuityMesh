@@ -1,0 +1,15 @@
+#!/bin/csh -fex
+
+set SKY_COLOR = "0.589 0.696 0.939"
+
+rfm_relight sponza-indirect.rfm out.rfm \
+    --verbose \
+    --direct-intensity 0.1 \
+    --indirect-intensity 100.0 \
+    --indirect-saturation 1.0
+
+rfm2wrl out.rfm out.wrl \
+    --verbose \
+    --sky-color $SKY_COLOR 
+
+open out.wrl
