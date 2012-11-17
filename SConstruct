@@ -122,7 +122,7 @@ def createTargets(debug, verbose):
         env.Append(RETRO_BUILD_OUTPUT_PREFIX="(opt)")
 
     # Tell SCons to put built object files and libraries in a separate directory.
-    env.BuildDir(buildObjDirectory, sourceDirectory, duplicate=0)
+    env.VariantDir(buildObjDirectory, sourceDirectory, duplicate=0)
 
     cxxFlags = ''
     # Specify /opt/local/include via -isystem, rather than in CPPPATH, above,
