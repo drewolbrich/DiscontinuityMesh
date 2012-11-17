@@ -1,5 +1,8 @@
 Python 2.5.2
 SCons 1.1.0
 GCC 4.0.1
-Boost 1.39.0
 CppUnit 1.12.1
+Boost 1.39.0
+
+*** The debug versions of the boost libraries must also be installed by running this:
+     sudo port install boost +debug

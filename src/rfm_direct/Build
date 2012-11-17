@@ -1,0 +1,8 @@
+LIBS = ['svg', 'meshretri', 'delaunay', 'light', 'meshrfm',
+        'meshweld', 'meshprim', 'meshisect', 'mesh', 'cgmath',
+        'exact', 'opt', 'os', 'os', 'con', 'str', 'except', 
+        'boost_filesystem', 
+        'boost_system', 
+        'boost_thread',
+        'boost_program_options',
+        'z']

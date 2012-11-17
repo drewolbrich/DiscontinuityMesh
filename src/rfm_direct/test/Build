@@ -1,0 +1,7 @@
+LIBS = ['rfm_direct', 'svg', 'meshretri', 'delaunay', 'mesh', 'exact',
+        'cgmath', 'except', 'unittest', 'opt', 'con',
+        'boost_filesystem',
+        'boost_system',
+        'boost_thread',
+        'boost_program_options',
+        'cppunit']

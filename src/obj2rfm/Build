@@ -1,0 +1,6 @@
+LIBS = ['meshobj', 'meshrfm', 'mesh', 'cgmath', 'opt', 'con', 'str', 'os', 'except', 
+        'boost_program_options',
+        'boost_filesystem', 
+        'boost_system', 
+        'boost_thread',
+        'z']

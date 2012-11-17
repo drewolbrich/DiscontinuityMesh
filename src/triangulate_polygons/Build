@@ -1,0 +1,5 @@
+LIBS = ['delaunay', 'exact', 'cgmath', 'opt', 'con', 'os', 'except', 
+        'boost_program_options',
+        'boost_filesystem', 
+        'boost_system', 
+        'boost_thread']

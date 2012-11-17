@@ -113,7 +113,6 @@ def createTargets(debug, verbose):
     env = baseEnv.Clone()
     
     env.Append(CPPPATH=[sourceDirectory])
-    env.Append(CPPPATH=['/opt/local/include'])
     env.Append(LIBPATH=[buildLibDirectory])
     env.Append(LIBPATH=['/opt/local/lib'])
 
@@ -126,17 +125,18 @@ def createTargets(debug, verbose):
     env.BuildDir(buildObjDirectory, sourceDirectory, duplicate=0)
 
     cxxFlags = ''
+    # Specify /opt/local/include via -isystem, rather than in CPPPATH, above,
+    # so the compiler won't complain about Boost library warnings.
+    cxxFlags += ' -isystem /opt/local/include'
     cxxFlags += ' -ansi'                # Disable GNU C++ extensions.
     cxxFlags += ' -std=c++98'           # Conform to 1998 ISO C++ standard plus amendments.
     cxxFlags += ' -pedantic'            # Issue all warnings demanded by strict ISO C++.
-    cxxFlags += ' -Wno-long-long'       # Don't warn about use of long long (for Boost).
     cxxFlags += ' -Wall'                # Enable all warnings.
     cxxFlags += ' -Wextra'              # Enable several other warnings.
     cxxFlags += ' -Wcast-qual'          # Warn when pointer cast removes type qualifier.
     cxxFlags += ' -Wcast-align'         # Warn when cast increases required alignment.
     cxxFlags += ' -Wwrite-strings'      # Warn about conversions from string constants to char *.
     cxxFlags += ' -Woverloaded-virtual' # Warn when hiding virtual function from base class.
-    cxxFlags += ' -Wno-missing-field-initializers'  # Suppresses a Boost threads warning.
     cxxFlags += ' -Werror'              # Treat all warnings as errors.
     cxxFlags += ' -pthread'             # Add support for multithreading.
     cxxFlags += ' -pipe'                # Use pipes to communicate between compilation stages.
