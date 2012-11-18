@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-// The following are prototypes for the functions in the file predicates.h,
+// The following are prototypes for the functions in the file predicates.c,
 // which didn't come with a header file.
 
 void exactinit();
