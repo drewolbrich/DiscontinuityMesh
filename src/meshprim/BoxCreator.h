@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESHPRIM__BOX_CREATOR__INCLUDED
 #define MESHPRIM__BOX_CREATOR__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef RFM2WRL__WRL_FILE_WRITER__INCLUDED
 #define RFM2WRL__WRL_FILE_WRITER__INCLUDED

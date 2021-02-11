@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESH__ATTRIBUTE_POSSESSOR_OPERATIONS__INCLUDED
 #define MESH__ATTRIBUTE_POSSESSOR_OPERATIONS__INCLUDED

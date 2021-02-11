@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #include "WriteRfmFile.h"
 #include "RfmFileWriter.h"

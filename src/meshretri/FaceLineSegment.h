@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef MESHRETRI__FACE_LINE_SEGMENT__INCLUDED
 #define MESHRETRI__FACE_LINE_SEGMENT__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef BOXWORLD__GRID__INCLUDED
 #define BOXWORLD__GRID__INCLUDED

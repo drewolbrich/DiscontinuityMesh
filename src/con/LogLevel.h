@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef CON__LOG_LEVEL__INCLUDED
 #define CON__LOG_LEVEL__INCLUDED

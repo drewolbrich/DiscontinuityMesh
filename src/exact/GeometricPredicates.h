@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef EXACT__GEOMETRIC_PREDICATES__INCLUDED
 #define EXACT__GEOMETRIC_PREDICATES__INCLUDED

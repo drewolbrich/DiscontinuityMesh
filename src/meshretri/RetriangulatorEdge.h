@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESHRETRI__RETRIANGULATOR_EDGE__INCLUDED
 #define MESHRETRI__RETRIANGULATOR_EDGE__INCLUDED

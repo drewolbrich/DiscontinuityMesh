@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef EXCEPT__FAILED_OPERATION_EXCEPTION__INCLUDED
 #define EXCEPT__FAILED_OPERATION_EXCEPTION__INCLUDED

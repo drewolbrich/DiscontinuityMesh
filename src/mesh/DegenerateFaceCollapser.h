@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef MESH__DEGENERATE_FACE_COLLAPSER__INCLUDED
 #define MESH__DEGENERATE_FACE_COLLAPSER__INCLUDED

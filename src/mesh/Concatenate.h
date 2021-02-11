@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESH__CONCATENATE__INCLUDED
 #define MESH__CONCATENATE__INCLUDED

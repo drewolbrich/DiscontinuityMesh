@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef CON__WORD_WRAPPED_STREAM_BUF__INCLUDED
 #define CON__WORD_WRAPPED_STREAM_BUF__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #include "Win32ErrorValue.h"
 

@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef MESHRFM__RFM_FILE_WRITER__INCLUDED
 #define MESHRFM__RFM_FILE_WRITER__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef MESHOBJ__OBJ_MATERIAL__INCLUDED
 #define MESHOBJ__OBJ_MATERIAL__INCLUDED

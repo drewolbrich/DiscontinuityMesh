@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef OS__UNIX_ERROR_VALUE__INCLUDED
 #define OS__UNIX_ERROR_VALUE__INCLUDED

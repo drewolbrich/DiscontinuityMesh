@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef RFM_DISCMESH__DISCONTINUITY_MESHER__INCLUDED
 #define RFM_DISCMESH__DISCONTINUITY_MESHER__INCLUDED

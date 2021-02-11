@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef CGMATH__MATRIX3F__INCLUDED
 #define CGMATH__MATRIX3F__INCLUDED

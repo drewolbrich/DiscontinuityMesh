@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef SVG__SVG_WRITER__INCLUDED
 #define SVG__SVG_WRITER__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef OPT__PROGRAM_OPTIONS_PARSER__INCLUDED
 #define OPT__PROGRAM_OPTIONS_PARSER__INCLUDED

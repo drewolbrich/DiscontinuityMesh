@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef UNITTEST__PRETTY_COMPILER_OUTPUTTER__INCLUDED
 #define UNITTEST__PRETTY_COMPILER_OUTPUTTER__INCLUDED

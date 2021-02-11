@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef UNITTEST__PRETTY_PROGRESS_LISTENER__INCLUDED
 #define UNITTEST__PRETTY_PROGRESS_LISTENER__INCLUDED

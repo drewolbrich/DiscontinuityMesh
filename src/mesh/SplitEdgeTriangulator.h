@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef MESH__SPLIT_EDGE_TRIANGULATOR__INCLUDED
 #define MESH__SPLIT_EDGE_TRIANGULATOR__INCLUDED

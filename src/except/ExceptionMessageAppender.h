@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef EXCEPT__EXCEPTION_MESSAGE_APPENDER__INCLUDED
 #define EXCEPT__EXCEPTION_MESSAGE_APPENDER__INCLUDED

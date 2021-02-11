@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef LIGHT__DISTANT_AREA_LIGHT__INCLUDED
 #define LIGHT__DISTANT_AREA_LIGHT__INCLUDED

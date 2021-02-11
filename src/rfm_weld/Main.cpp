@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 // This program detects perimeter edges of a mesh (edges with only one adjacent face),
 // and welds together the vertices and edges that lie close together.

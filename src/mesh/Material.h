@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef MESH__MATERIAL__INCLUDED
 #define MESH__MATERIAL__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 // This program converts an RFM file to a VRML 2.0 WRL file.
 

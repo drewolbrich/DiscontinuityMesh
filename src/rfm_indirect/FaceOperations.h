@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef RFM_INDIRECT__FACE_OPERATIONS__INCLUDED
 #define RFM_INDIRECT__FACE_OPERATIONS__INCLUDED

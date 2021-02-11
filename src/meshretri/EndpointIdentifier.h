@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef MESHRETRI__ENDPOINT_IDENTIFIER__INCLUDED
 #define MESHRETRI__ENDPOINT_IDENTIFIER__INCLUDED

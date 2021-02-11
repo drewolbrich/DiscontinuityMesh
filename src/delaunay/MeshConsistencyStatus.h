@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef DELAUNAY__MESH_CONSISTENCY_STATUS__INCLUDED
 #define DELAUNAY__MESH_CONSISTENCY_STATUS__INCLUDED

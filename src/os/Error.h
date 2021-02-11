@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef OS__ERROR__INCLUDED
 #define OS__ERROR__INCLUDED

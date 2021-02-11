@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 // This program computes indirect illumination on a mesh in an RFM file.
 // It assumes that the direct illumination has already been computed by rfm_discmesh.

@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef CGMATH__BARYCENTRIC_COORDINATES__INCLUDED
 #define CGMATH__BARYCENTRIC_COORDINATES__INCLUDED

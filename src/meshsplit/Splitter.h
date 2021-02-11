@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESHSPLIT__SPLITTER__INCLUDED
 #define MESHSPLIT__SPLITTER__INCLUDED

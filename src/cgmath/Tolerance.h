@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef CGMATH__TOLERANCE__INCLUDED
 #define CGMATH__TOLERANCE__INCLUDED

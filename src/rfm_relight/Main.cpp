@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 // Adjusts the precomputed direct and indirect lighting stored in an RFM file.
 

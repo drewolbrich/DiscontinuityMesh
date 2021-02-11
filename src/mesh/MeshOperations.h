@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef MESH__MESH_OPERATIONS__INCLUDED
 #define MESH__MESH_OPERATIONS__INCLUDED

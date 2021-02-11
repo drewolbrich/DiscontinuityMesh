@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef TEMPLATE_BASED_CGMATH__VECTOR3__INCLUDED
 #define TEMPLATE_BASED_CGMATH__VECTOR3__INCLUDED

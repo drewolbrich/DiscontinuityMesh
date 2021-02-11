@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef MESHOBJ__CREATE_EDGES_FROM_FACE__INCLUDED
 #define MESHOBJ__CREATE_EDGES_FROM_FACE__INCLUDED

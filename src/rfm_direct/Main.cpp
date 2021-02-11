@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 // This program generates a discontinuity mesh within an RFM file,
 // given one or more light sources defined as polygons

@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESHWELD__EDGE__INCLUDED
 #define MESHWELD__EDGE__INCLUDED

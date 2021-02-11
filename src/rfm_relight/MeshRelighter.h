@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef RFM_RELIGHT__MESH_RELIGHTER__INCLUDED
 #define RFM_RELIGHT__MESH_RELIGHTER__INCLUDED

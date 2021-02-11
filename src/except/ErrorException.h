@@ -1,4 +1,4 @@
-// Copyright 2010 Retroactive Fiasco.
+// Copyright 2010 Drew Olbrich
 
 #ifndef EXCEPT__ERROR_EXCEPTION__INCLUDED
 #define EXCEPT__ERROR_EXCEPTION__INCLUDED

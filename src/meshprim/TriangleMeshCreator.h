@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESHPRIM__TRIANGLE_MESH_CREATOR__INCLUDED
 #define MESHPRIM__TRIANGLE_MESH_CREATOR__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef OS__PLATFORM__INCLUDED
 #define OS__PLATFORM__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef MESH__TYPES__INCLUDED
 #define MESH__TYPES__INCLUDED

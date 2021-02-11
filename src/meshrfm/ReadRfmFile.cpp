@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #include "ReadRfmFile.h"
 #include "RfmFileReader.h"

@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef CGMATH__ANGLE_OPERATIONS__INCLUDED
 #define CGMATH__ANGLE_OPERATIONS__INCLUDED

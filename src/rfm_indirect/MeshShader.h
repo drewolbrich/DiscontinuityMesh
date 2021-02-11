@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef RFM_INDIRECT__MESH_SHADER__INCLUDED
 #define RFM_INDIRECT__MESH_SHADER__INCLUDED

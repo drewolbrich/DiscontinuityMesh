@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef RFM_DISCMESH__TEST_LINE_SEGMENT_COLLECTION__INCLUDED
 #define RFM_DISCMESH__TEST_LINE_SEGMENT_COLLECTION__INCLUDED

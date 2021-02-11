@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef CON__SPECIAL_CHARACTERS__INCLUDED
 #define CON__SPECIAL_CHARACTERS__INCLUDED

@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 // This file is named UnitTestMain.cpp, and not Main.cpp, so the build system
 // doesn't mistakenly build an executable for this directory.

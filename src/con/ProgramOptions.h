@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef CON__PROGRAM_OPTIONS__INCLUDED
 #define CON__PROGRAM_OPTIONS__INCLUDED

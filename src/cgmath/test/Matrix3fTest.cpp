@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #include <sstream>
 #include <cppunit/extensions/HelperMacros.h>

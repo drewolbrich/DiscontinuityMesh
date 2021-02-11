@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESHISECT__FACE_INTERSECTOR_LISTENER__INCLUDED
 #define MESHISECT__FACE_INTERSECTOR_LISTENER__INCLUDED

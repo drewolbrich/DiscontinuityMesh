@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef RFM_LINT__MESH_LINTER__INCLUDED
 #define RFM_LINT__MESH_LINTER__INCLUDED

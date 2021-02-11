@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef CGMATH__AABB_TREE_NODE__INCLUDED
 #define CGMATH__AABB_TREE_NODE__INCLUDED

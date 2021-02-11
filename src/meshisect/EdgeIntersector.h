@@ -1,4 +1,4 @@
-// Copyright 2009 Retroactive Fiasco.
+// Copyright 2009 Drew Olbrich
 
 #ifndef MESHISECT__EDGE_INTERSECTOR__INCLUDED
 #define MESHISECT__EDGE_INTERSECTOR__INCLUDED

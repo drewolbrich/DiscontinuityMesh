@@ -1,4 +1,4 @@
-// Copyright 2008 Retroactive Fiasco.
+// Copyright 2008 Drew Olbrich
 
 #ifndef OS__TIME_VALUE__INCLUDED
 #define OS__TIME_VALUE__INCLUDED
